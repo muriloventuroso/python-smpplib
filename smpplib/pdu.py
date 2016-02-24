@@ -147,5 +147,4 @@ class PDU(object):
 
         header = struct.pack(">LLLL", self._length, command_code,
                              self.status, self.sequence)
-
-        return header + body
+        return header + body.encode('utf-8')

@@ -7,10 +7,10 @@ from . import exceptions
 
 
 # from http://stackoverflow.com/questions/2452861/python-library-for-converting-plain-text-ascii-into-gsm-7-bit-character-set
-gsm = (u"@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞ\x1bÆæßÉ !\"#¤%&'()*+,-./0123456789:;<=>"
-       u"?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ`¿abcdefghijklmnopqrstuvwxyzäöñüà")
-ext = (u"````````````````````^```````````````````{}`````\\````````````[~]`"
-       u"|````````````````````````````````````€``````````````````````````")
+gsm = ("@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞ\x1bÆæßÉ !\"#¤%&'()*+,-./0123456789:;<=>"
+       "?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ`¿abcdefghijklmnopqrstuvwxyzäöñüà")
+ext = ("````````````````````^```````````````````{}`````\\````````````[~]`"
+       "|````````````````````````````````````€``````````````````````````")
 
 
 class EncodeError(ValueError):
@@ -60,9 +60,10 @@ def make_parts(text):
         ipart = 1
         uid = random.randint(0, 255)
         for start in starts:
-            parts.append(''.join(('\x05\x00\x03', chr(uid),
+            print(text)
+            parts.append(''.join(map(str,('\x05\x00\x03', chr(uid),
                                   chr(len(starts)), chr(ipart),
-                                  encode(text[start:start + partsize]))))
+                                  encode(text[start:start + partsize])))))
             ipart += 1
     else:
         parts = (encode(text),)

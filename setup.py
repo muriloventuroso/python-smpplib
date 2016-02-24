@@ -7,8 +7,8 @@ if sys.version_info >= (3,):
 
 setup(name="python-smpplib",
       version='1.0.1',
-      url='https://github.com/podshumok/python-smpplib',
-      description='SMPP library for python',
+      url='https://github.com/muriloventuroso/python-smpplib',
+      description='SMPP library for Python 3',
       packages=find_packages(),
       zip_safe=True,
       classifiers=[
@@ -20,6 +20,7 @@ setup(name="python-smpplib",
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.1',
         'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Communications :: Telephony',
         'Intended Audience :: Telecommunications Industry',
         'License :: OSI Approved',
